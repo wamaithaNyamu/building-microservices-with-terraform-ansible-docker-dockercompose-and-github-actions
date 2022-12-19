@@ -32,11 +32,12 @@ jobs:
       env:
           SSH_AUTH_SOCK: /tmp/ssh_agent.sock              
       run: |
+           cd microservices 
            echo MONGODB_CONNSTRING="${{secrets.MONGODB_CONNSTRING}}" >> .env
            echo MONGO_INITDB_DATABASE="${{secrets.MONGO_INITDB_DATABASE}}" >> .env
            echo MONGO_INITDB_ROOT_PASSWORD="${{secrets.MONGO_INITDB_ROOT_PASSWORD}}" >> .env
            echo MONGO_INITDB_ROOT_USERNAME="${{secrets.MONGO_INITDB_ROOT_USERNAME}}" >> .env
-          
+           cd .. 
            ansible-playbook playbook.yml -u root --private-key="${{ secrets.SSH_PRIVATE_KEY }}" -i inventory.ini -vvv  --extra-vars "source=microservices"
 
 
