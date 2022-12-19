@@ -27,7 +27,7 @@
 
 <!-- PROJECT LOGO -->
 ![building-microservices-with-terraform-ansible-docker-dockercompose-and-github-actions](./Images/cover.png)
-Accompanying blog can be found [here](https://wamaithanyamu.com/building-microservices-with-terraform-ansible-docker-dockercompose-and-github-actions
+Accompanying blog can be found [here](https://wamaithanyamu.com/building-microservices-using-terraform-ansible-docker-docker-compose-and-github-actions
 )
 <div>
 <h3 align="center">Building a microservices using Terraform Ansible Docker Docker-Compose and Github actions.
@@ -48,6 +48,12 @@ Accompanying blog can be found [here](https://wamaithanyamu.com/building-microse
     MONGO_INITDB_ROOT_PASSWORD=example
     MONGODB_CONNSTRING=mongodb://root:example@mongo:27017/test?directConnection=true&authSource=admin&replicaSet=replicaset&retryWrites=true
 
+```
+3. In the **Terraform directory** create the file **terraform.tfvars** and add the following:
+
+```sh
+linode-token="add_token_here_within_the_quotes"
+root_pass="generate_a_strong_password_and_add_it_here_between_this_quotes"
 ```
 
 ### How to run the code using your laptop as the Ansible controller machine
