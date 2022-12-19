@@ -1,0 +1,10 @@
+**/.env
+**/node_modules
+**/data
+.vscode
+
+*.tfstate
+*.tfstate.*
+*.tfvars
+.terraform/
+*.plan

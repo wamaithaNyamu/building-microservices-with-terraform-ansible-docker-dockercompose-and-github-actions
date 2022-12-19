@@ -1,0 +1,100 @@
+version: '3.8'
+
+services:
+  kanye:
+    image: kanye
+    container_name: kanye
+
+    build:
+      context: ./Kanye
+    networks:
+      - kanye
+    ports:
+      - "8080:8080"
+
+  dadjokes:
+    image: dadjokes
+    container_name: dadjokes
+    build:
+      context: ./DadJokes
+    networks:
+      - dadjokes
+    ports:
+      - "7000:7000"
+
+  mongo:
+    container_name: mongo
+    image: mongo:5.0
+    ports:
+      - "27017:27017"
+    env_file:
+      - .env    
+    environment:
+      # - MONGO_INITDB_DATABASE=admin
+      # - MONGO_INITDB_ROOT_USERNAME=root
+      # - MONGO_INITDB_ROOT_PASSWORD=example
+      - MONGO_INITDB_DATABASE=${MONGO_INITDB_DATABASE}
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+    volumes:
+      - mongo-database:/data/db
+    networks:
+      - mongonetwork
+
+  myjokes:
+    container_name: myjokes
+    image: myjokes
+    build:
+      context: ./MyJokes
+    ports:
+      - "3030:3030"
+    networks:
+      - myjokes
+      - mongonetwork
+    links:
+      - mongo
+    depends_on:
+      - mongo
+    env_file:
+      - .env
+    environment:
+      # - MONGODB_CONNSTRING=mongodb://root:example@mongo:27017/test?directConnection=true&authSource=admin&replicaSet=replicaset&retryWrites=true
+      - MONGODB_CONNSTRING=${MONGODB_CONNSTRING}
+
+
+  frontend:
+    container_name: frontend
+    image: frontend
+    build:
+      context: ./frontend
+      args:
+        - KANYE_SERVICE_URL=/kanye
+        - DADJOKES_SERVICE_URL=/dadjoke
+        - MYJOKES_SERVICE_URL=/myjoke
+    ports:
+      - "80:80"
+    networks:
+      - kanye
+      - dadjokes
+      - myjokes
+      - frontend
+    links:
+      - kanye
+      - dadjokes
+      - myjokes
+    depends_on:
+      - kanye
+      - dadjokes
+      - myjokes
+
+networks:
+  kanye:
+  dadjokes:
+  myjokes:
+  frontend:
+  mongonetwork:
+
+volumes:
+  mongo-database:
+
+

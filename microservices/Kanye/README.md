@@ -1,0 +1,1 @@
+This is Kanye as a Service using Go
