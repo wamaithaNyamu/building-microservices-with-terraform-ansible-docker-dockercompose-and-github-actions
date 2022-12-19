@@ -18,7 +18,7 @@ cd terraform
 
 # Terraform destroy
 echo "----------------------- Terraform Destroy -----------------------"
-terraform destroy -auto-approve -lock=false
+# terraform destroy -auto-approve -lock=false
 
 # initialize terraform
 terraform init

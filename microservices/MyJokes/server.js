@@ -14,16 +14,13 @@ const app = express();
 app.use(cor())
 app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.send('Brrrrr');
-});
+
 
 app.use('/api/quote', quoteRoute)
 
 const start = async () => {
   try {
 
-    console.log('Starting server...++++++++++++++++++++++++++++++', process.env.MONGODB_CONNSTRING)
 
     await connectDB()
     app.listen(PORT,  () => {

@@ -1,16 +1,6 @@
 version: '3.8'
 
 services:
-  kanye:
-    image: kanye
-    container_name: kanye
-
-    build:
-      context: ./Kanye
-    networks:
-      - kanye
-    ports:
-      - "8080:8080"
 
   dadjokes:
     image: dadjokes
@@ -22,6 +12,18 @@ services:
     ports:
       - "7000:7000"
 
+  kanye:
+    image: kanye
+    container_name: kanye
+    build:
+      context: ./Kanye
+    networks:
+      - kanye
+    ports:
+      - "8080:8080"
+
+
+
   mongo:
     container_name: mongo
     image: mongo:5.0
@@ -30,9 +32,6 @@ services:
     env_file:
       - .env    
     environment:
-      # - MONGO_INITDB_DATABASE=admin
-      # - MONGO_INITDB_ROOT_USERNAME=root
-      # - MONGO_INITDB_ROOT_PASSWORD=example
       - MONGO_INITDB_DATABASE=${MONGO_INITDB_DATABASE}
       - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
       - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
@@ -58,7 +57,6 @@ services:
     env_file:
       - .env
     environment:
-      # - MONGODB_CONNSTRING=mongodb://root:example@mongo:27017/test?directConnection=true&authSource=admin&replicaSet=replicaset&retryWrites=true
       - MONGODB_CONNSTRING=${MONGODB_CONNSTRING}
 
 
@@ -87,14 +85,17 @@ services:
       - dadjokes
       - myjokes
 
+
 networks:
-  kanye:
   dadjokes:
+  kanye:
   myjokes:
   frontend:
   mongonetwork:
 
 volumes:
   mongo-database:
+
+
 
 

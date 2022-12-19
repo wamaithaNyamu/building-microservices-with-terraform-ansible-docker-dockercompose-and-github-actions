@@ -11,7 +11,6 @@ const MyJokes = () => {
         setLoading(true)
         const res = await fetch(config.services.myjokes)
         const data = await res.json()
-        console.log(data['quote'])
         setJokes(data['quote'])
         setLoading(false)
     }

@@ -8,12 +8,8 @@ const NewJoke = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log(joke)
         let formData = new FormData();
         formData.append('quote', joke);
-
-        console.log(formData)
-
         await fetch(`${config.services.myjokes}/new`,
             {
                 method: "post",

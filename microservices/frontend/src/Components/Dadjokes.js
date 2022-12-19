@@ -10,7 +10,6 @@ const Dadjokes = () => {
         setLoading(true)
         const res = await fetch(config.services.dadjokes)
         const data = await res.json()
-        console.log(data)
         setJokes(data)
         setLoading(false)
     }
@@ -20,7 +19,7 @@ const Dadjokes = () => {
     }, [])
 
  
-
+// 
   return (
     <div className="flex font-mono">
     <div className="flex-none w-56 relative">

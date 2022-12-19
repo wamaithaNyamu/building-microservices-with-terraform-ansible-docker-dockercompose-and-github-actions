@@ -1,7 +1,6 @@
 const Quote = require('../Models/quoteModel')
 
 
-
 // @desc    Fetch random quote
 // @route   GET /api/quote
 // @access  Public
@@ -17,7 +16,6 @@ const randomQuote = async (req, res) => {
             Quote.findOne().skip(random).exec(
                 function (err, result) {
                     // Tada! random user
-                    console.log(result)
                    return res.json(result)
                 })
         })
@@ -40,8 +38,6 @@ const postQuote = async (req, res) => {
         })
 
         const createdQuote = await newQuote.save()
-
-        console.log(createdQuote)
         res.json(createdQuote)
     } catch (error) {
         console.error(error)

@@ -3,6 +3,8 @@
 **/data
 .vscode
 
+**/__pycache__
+
 *.tfstate
 *.tfstate.*
 *.tfvars

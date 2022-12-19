@@ -10,7 +10,6 @@ const Kanye = () => {
         setLoading(true)
         const res = await fetch(config.services.kanye)
         const data = await res.json()
-        console.log(data)
         setJokes(data)
         setLoading(false)
     }

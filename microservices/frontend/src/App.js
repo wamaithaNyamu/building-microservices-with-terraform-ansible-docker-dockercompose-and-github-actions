@@ -4,7 +4,6 @@ import MyJokes from "./Components/MyJokes";
 import NewJoke from "./Components/NewJoke";
 function App() {
 
-  console.log('Starting server...++++++++++++++++++++++++++++++', process.env.KANYE_SERVICE_URL)
 
   return (
     <div className="flex justify-center">
