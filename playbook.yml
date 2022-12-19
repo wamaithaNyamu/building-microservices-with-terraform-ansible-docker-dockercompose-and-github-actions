@@ -48,7 +48,7 @@
 
     - name: Copy env
       copy:
-            src:   "{{ source}}/.env"
+            src:   "{{source}}/.env"
             dest: /home/microservices/.env
 
     - name: Run Docker Compose Build and run image

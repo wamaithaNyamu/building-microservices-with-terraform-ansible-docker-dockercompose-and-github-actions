@@ -120,8 +120,7 @@ Final github secrets should be as follows:
 
 
 
-See the [open issues](https://github.com/wamaithanyamu/building-microservices-with-terraform-ansible-docker-dockercompose-and-github-actions
-/issues) for a full list of proposed features (and known issues).
+See the [open issues](https://github.com/wamaithanyamu/building-microservices-with-terraform-ansible-docker-dockercompose-and-github-actions/issues) for a full list of proposed features (and known issues).
 
 
 
@@ -153,8 +152,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 Tweet me at- [@wamaithanyamu](https://twitter.com/wamaithanyamu) or shoot me an email at hello@wamaithanyamu.com
 
 Project Link: [https://github.com/wamaithanyamu/building-microservices-with-terraform-ansible-docker-dockercompose-and-github-actions
-](https://github.com/wamaithanyamu/building-microservices-with-terraform-ansible-docker-dockercompose-and-github-actions
-)
+](https://github.com/wamaithanyamu/building-microservices-with-terraform-ansible-docker-dockercompose-and-github-actions)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
