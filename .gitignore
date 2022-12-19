@@ -8,3 +8,11 @@
 *.tfvars
 .terraform/
 *.plan
+**/.*.tfstate
+**/.*.tfstate.*
+**/.*.tfvars
+**/.terraform/
+**/.*.plan
+**/.*.terraform.lock.hcl
+**/.*.terraform.tfstate.backup
+
