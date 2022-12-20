@@ -41,8 +41,10 @@ Accompanying blog can be found [here](https://wamaithanyamu.com/building-microse
 
 1. A linode api token. 
 2. Create a .env file in the microservices folder. Add the following value
+3. Change the branch you need the Github Actions to run on.
 
 ```sh
+
     MONGO_INITDB_DATABASE=admin
     MONGO_INITDB_ROOT_USERNAME=root
     MONGO_INITDB_ROOT_PASSWORD=example
@@ -59,27 +61,31 @@ root_pass="generate_a_strong_password_and_add_it_here_between_this_quotes"
 ### How to run the code using your laptop as the Ansible controller machine
 
 Navigate to the Scripts folder
+
 ```sh
     cd Scripts
 ```
 
 Run the bash installation script. This script installs Ansible, Terraform and ssh pass to your laptop
-    ```sh
+```sh
+
     ./installations.sh
     
-    ```
+```
 
 Run the Terraform setup script that spins up a new ubuntu VM on Linode, generates ssh keys , saves the ip address on the inventory.ini, logs in to the VM and pastes the public key.
 
-    ```sh
-    ./terraform_setup.sh
+```sh
+
+   ./terraform_setup.sh
     
-    ```
+```
 
 Run ansible script. The Script, logs in to the VM, installs the needed modules , spins up the docker compose
 
    ```sh
-  ./run_ansible.sh
+     ./run_ansible.sh
+
    ```
 
 ### How to run the code with Github Actions as the controller machine
@@ -90,10 +96,11 @@ Navigate to the Scripts folder
 ```
 
 Remove the ansible installation block.Run the bash installation script. This script installs Terraform and ssh pass to your laptop.
-    ```sh
+ 
+```sh
     ./installations.sh
     
-    ```
+```
 
 
 Push the code to github. Ensure you add the following to github secrets:

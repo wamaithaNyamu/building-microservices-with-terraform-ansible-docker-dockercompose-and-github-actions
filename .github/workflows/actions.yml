@@ -2,7 +2,7 @@ name: Building microservices with Terraform, Ansible, docker, docker-compose, an
 on:
   push:
       branches:
-        - "main"
+        - "master" #<----change to whichever branch
 jobs:
   provision:
     name: Run Ansible
